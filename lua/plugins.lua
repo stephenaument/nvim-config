@@ -55,6 +55,7 @@ return require('packer').startup(function(use)
     use 'junegunn/fzf.vim'
     use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' } }
     use 'mfussenegger/nvim-lint'
+    use 'vim-test/vim-test'
 
     use 'tpope/vim-endwise'
     use 'tpope/vim-fugitive'
