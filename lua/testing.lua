@@ -1,5 +1,7 @@
 local M = {}
 
+vim.g['test#strategy'] = 'neovim_sticky'
+
 function M.test()
   if vim.bo.filetype == 'elixir' then
     vim.cmd('!mix test %')
