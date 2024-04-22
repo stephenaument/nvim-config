@@ -10,7 +10,7 @@ require('mason').setup({
 
 require('mason-lspconfig').setup({
     -- A list of servers to automatically install if they're not already installed
-    ensure_installed = { 'ruby_ls', 'pylsp', 'elixirls', 'lua_ls', 'eslint', 'html', 'cssls', 'tsserver' },
+    ensure_installed = { 'ruby_ls', 'pylsp', 'solargraph', 'lua_ls', 'eslint', 'html', 'cssls', 'tsserver' },
 })
 
 -- Set different settings for different languages' LSP
@@ -76,11 +76,6 @@ lspconfig.solargraph.setup {
   }
 }
 
-require("copilot").setup({
-  suggestion = { enabled = false },
-  panel = { enabled = false },
-})
-
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
@@ -133,18 +128,3 @@ cmp.setup({
     { name = 'buffer' },
   })
 })
-
-local elixir = require("elixir")
-local elixirls = require("elixir.elixirls")
-
-elixir.setup({
-  nextls = {enable = false},
-  credo = {enable = true},
-  elixirls = {
-    enable = true,
-    settings = elixirls.settings {
-      enableTestLenses = false,
-    },
-  },
-})
-
