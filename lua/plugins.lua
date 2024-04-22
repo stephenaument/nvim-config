@@ -66,7 +66,6 @@ return require('packer').startup(function(use)
     use 'godlygeek/tabular'
     use 'vim-airline/vim-airline'
     use 'pbrisbin/vim-mkdir'
-    use({ "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" }})
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
