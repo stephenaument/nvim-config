@@ -66,14 +66,6 @@ return require('packer').startup(function(use)
     use 'godlygeek/tabular'
     use 'vim-airline/vim-airline'
     use 'pbrisbin/vim-mkdir'
-    use {
-      "zbirenbaum/copilot-cmp",
-      requires = { "zbirenbaum/copilot.lua" },
-      after = { "copilot.lua" },
-      config = function ()
-        require("copilot_cmp").setup()
-      end
-    }
     use({ "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" }})
 
     -- Automatically set up your configuration after cloning packer.nvim
