@@ -50,9 +50,12 @@ vim.keymap.set('n', ',,', ':cclose<CR>', opts)
 vim.keymap.set('n', '<Leader>g', ':Ge:<CR>', opts) -- Git
 
 -- fzf shortcuts
-vim.keymap.set('n', '<C-p>', ':Files<CR>', opts)
-vim.keymap.set('n', '<C-.>', ':GFiles<CR>', opts)
+vim.keymap.set('n', '<C-p>', ':GFiles<CR>', opts)
+vim.keymap.set('n', '<C-.>', ':Files<CR>', opts)
 vim.keymap.set('n', '<Leader>b', ':Buffers<CR>', opts)
+vim.keymap.set('n', '<Leader>c', ':Commits<CR>', opts)
+
+
 
 
 -----------------
