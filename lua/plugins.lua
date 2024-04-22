@@ -66,7 +66,6 @@ return require('packer').startup(function(use)
     use 'godlygeek/tabular'
     use 'vim-airline/vim-airline'
     use 'pbrisbin/vim-mkdir'
-    use 'knubie/vim-kitty-navigator'
     use {
       "zbirenbaum/copilot-cmp",
       requires = { "zbirenbaum/copilot.lua" },

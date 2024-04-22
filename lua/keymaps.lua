@@ -25,13 +25,8 @@ vim.keymap.set('n', '<Leader>r', ':NvimTreeRefresh<cr>', opts)
 vim.keymap.set('n', '<Leader><space>', ':nohl<cr>', opts)
 
 vim.keymap.set('n', '<f3>', ':so ~/.config/nvim/init.lua<cr>', opts)
-vim.keymap.set('n', '<f4>', ':call system("kitty @ resize-window --match title:Rake --increment -40 --axis vertical") <cr>', opts)
-vim.keymap.set('n', '<f6>', ':call system("kitty @ close-window --match title:Rake")<cr>', opts)
-vim.keymap.set('n', '<f7>', ':call system("kitty @ resize-window --match title:Rake --increment 40 --axis vertical && kitty @ scroll-window --match title:Rake 40") <cr>', opts)
-vim.keymap.set('n', '<f9>', '<cr>:call system("kitty @ launch --title=Rake --cwd=current --dont-take-focus --allow-remote-control")<cr>', opts)
-
-vim.keymap.set('n', '<f10>', ':w<cr>:call system("kitty @ goto-layout fat && kitty @ send-text --match title:Rake mix format\\r")<cr>', opts)
-vim.keymap.set('i', '<f10>', '<esc>:w<cr>:call system("kitty @ goto-layout fat && kitty @ send-text --match title:Rake mix format\\r")<cr>', opts)
+vim.keymap.set('n', '<f4>', '40<c-w>+', opts)
+vim.keymap.set('n', '<f7>', '40<c-w>-', opts)
 
 -- Tests
 vim.keymap.set('n', '<f8>', ':w<cr>:TestFile<cr>', {noremap = true})
