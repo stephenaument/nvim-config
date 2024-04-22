@@ -10,7 +10,7 @@ require('mason').setup({
 
 require('mason-lspconfig').setup({
     -- A list of servers to automatically install if they're not already installed
-    ensure_installed = { 'ruby_ls', 'pylsp', 'elixirls', 'lua_ls', 'eslint', 'html', 'cssls', 'tsserver' },
+    ensure_installed = { 'ruby_ls', 'pylsp', 'solargraph', 'lua_ls', 'eslint', 'html', 'cssls', 'tsserver' },
 })
 
 -- Set different settings for different languages' LSP
