@@ -21,6 +21,7 @@ require('mason-lspconfig').setup({
 local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+
 -- Customized on_attach function
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
@@ -62,6 +63,17 @@ lspconfig.pylsp.setup({
 lspconfig.elixirls.setup {
   on_attach = on_attach,
   capabilities = capabilities
+}
+
+lspconfig.solargraph.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    solargraph = {
+      diagnostics = true,
+      formatting = true
+    }
+  }
 }
 
 require("copilot").setup({
