@@ -1,5 +1,5 @@
 require('nvim-lint').linters_by_ft = {
-  markdown = {'ruby', 'markdownlint', 'luacheck', 'jsonlint', 'tidy', 'eslint', 'erb_lint', 'credo'}
+  markdown = {'ruby', 'luacheck', 'jsonlint', 'tidy', 'eslint', 'erb_lint', 'credo'}
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
