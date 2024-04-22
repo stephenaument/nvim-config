@@ -29,8 +29,10 @@ vim.keymap.set('n', '<f4>', '40<c-w>+', opts)
 vim.keymap.set('n', '<f7>', '40<c-w>-', opts)
 
 -- Tests
-vim.keymap.set('n', '<f8>', ':w<cr>:TestFile<cr>', {noremap = true})
-vim.keymap.set('i', '<f8>', '<esc>:w<cr>:TestFile<cr>', {noremap = true})
+vim.keymap.set('n', '<f8>', ':w<cr>:TestLast<cr>', {noremap = true})
+vim.keymap.set('i', '<f8>', '<esc>:w<cr>:TestLast<cr>', {noremap = true})
+vim.keymap.set('n', '<f9>', ':w<cr>:TestNearest<cr>', opts)
+vim.keymap.set('i', '<f9>', '<esc>:w<cr>:TestNearest<cr>', opts)
 vim.keymap.set('n', '<leader>t', ':w<cr>:TestNearest<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>a', ':w<cr>:TestSuite<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>l', ':w<cr>:TestLast<cr>', {noremap = true})
