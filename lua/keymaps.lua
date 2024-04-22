@@ -45,7 +45,7 @@ vim.keymap.set('n', '<Leader>*', ':Ag <C-R><C-W><CR>', opts)
 
 vim.keymap.set('n', ',,', ':cclose<CR>', opts)
 
-vim.keymap.set('n', '<Leader>g', ':G<CR>', opts) -- Git
+vim.keymap.set('n', '<Leader>g', ':Ge:<CR>', opts) -- Git
 
 -- fzf shortcuts
 vim.keymap.set('n', '<C-p>', ':Files<CR>', opts)
