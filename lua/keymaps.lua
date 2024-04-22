@@ -36,6 +36,10 @@ vim.keymap.set('n', '<leader>a', ':w<cr>:TestSuite<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>l', ':w<cr>:TestLast<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>v', ':w<cr>:TestVisit<cr>', {noremap = true})
 
+-- Terminal Mode
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', {noremap = true, silent = true})
+
+
 vim.keymap.set('n', '\\', ':Ag<CR>', opts)
 vim.keymap.set('n', '<Leader>*', ':Ag <C-R><C-W><CR>', opts)
 
