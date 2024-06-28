@@ -33,7 +33,7 @@ vim.keymap.set('n', '<f8>', ':w<cr>:TestLast<cr>', {noremap = true})
 vim.keymap.set('i', '<f8>', '<esc>:w<cr>:TestLast<cr>', {noremap = true})
 vim.keymap.set('n', '<f9>', ':w<cr>:TestNearest<cr>', opts)
 vim.keymap.set('i', '<f9>', '<esc>:w<cr>:TestNearest<cr>', opts)
-vim.keymap.set('n', '<leader>t', ':w<cr>:TestNearest<cr>', {noremap = true})
+vim.keymap.set('n', '<leader>t', ':w<cr>:TestFile<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>a', ':w<cr>:TestSuite<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>l', ':w<cr>:TestLast<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>v', ':w<cr>:TestVisit<cr>', {noremap = true})
@@ -55,6 +55,8 @@ vim.keymap.set('n', '<C-.>', ':Files<CR>', opts)
 vim.keymap.set('n', '<Leader>b', ':Buffers<CR>', opts)
 vim.keymap.set('n', '<Leader>c', ':Commits<CR>', opts)
 
+-- oil.nvim mimic vim-vinegar navigation to parent
+vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 
 
 

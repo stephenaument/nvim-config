@@ -57,6 +57,7 @@ return require('packer').startup(function(use)
     use 'mfussenegger/nvim-lint'
     use 'vim-test/vim-test'
 
+    use 'tpope/vim-rails'
     use 'tpope/vim-endwise'
     use 'tpope/vim-fugitive'
     use 'tpope/vim-rhubarb'
@@ -66,6 +67,15 @@ return require('packer').startup(function(use)
     use 'godlygeek/tabular'
     use 'vim-airline/vim-airline'
     use 'pbrisbin/vim-mkdir'
+
+    use 'stsewd/fzf-checkout.vim'
+
+    use({
+      'stevearc/oil.nvim',
+      config = function()
+        require('oil').setup()
+      end,
+    })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
