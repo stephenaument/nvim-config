@@ -7,6 +7,7 @@ local opts = {
 -----------------
 -- Normal mode --
 -----------------
+---
 
 vim.g.mapleader = ','
 
@@ -40,8 +41,8 @@ vim.keymap.set('n', '<f5>', ':w<cr>:TestSuite --only-failures<cr>', opts)
 vim.keymap.set('i', '<f5>', '<esc>:w<cr>:TestSuite --only-failures<cr>', opts)
 vim.keymap.set('n', '<leader>v', ':w<cr>:TestVisit<cr>', opts)
 
--- Terminal Mode
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', {noremap = true, silent = true})
+-- Terminal Mode — double-Esc exits to Nvim normal mode; single Esc passes through to shell (zsh vi mode)
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', opts)
 
 
 vim.keymap.set('n', '\\', ':Ag<CR>', opts)
