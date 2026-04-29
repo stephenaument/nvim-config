@@ -20,23 +20,25 @@ vim.keymap.set('n', '<space><space>', '<C-6>', opts)
 
 -- NvimTree
 vim.keymap.set('n', '<Leader>n', ':NvimTreeToggle<cr>', opts)
-vim.keymap.set('n', '<Leader>r', ':NvimTreeRefresh<cr>', opts)
+vim.keymap.set('n', '<Leader>R', ':NvimTreeRefresh<cr>', opts)
 
 vim.keymap.set('n', '<Leader><space>', ':nohl<cr>', opts)
 
-vim.keymap.set('n', '<f3>', ':so ~/.config/nvim/init.lua<cr>', opts)
+vim.keymap.set('n', '<f3>', '10<c-w>+', opts)
 vim.keymap.set('n', '<f4>', '40<c-w>+', opts)
+vim.keymap.set('n', '<f6>', '10<c-w>-', opts)
 vim.keymap.set('n', '<f7>', '40<c-w>-', opts)
 
--- Tests
-vim.keymap.set('n', '<f8>', ':w<cr>:TestLast<cr>', {noremap = true})
-vim.keymap.set('i', '<f8>', '<esc>:w<cr>:TestLast<cr>', {noremap = true})
+-- Tests - vim-test/vim-test
+vim.keymap.set('n', '<f8>', ':w<cr>:TestLast<cr>', opts)
+vim.keymap.set('i', '<f8>', '<esc>:w<cr>:TestLast<cr>', opts)
 vim.keymap.set('n', '<f9>', ':w<cr>:TestNearest<cr>', opts)
 vim.keymap.set('i', '<f9>', '<esc>:w<cr>:TestNearest<cr>', opts)
-vim.keymap.set('n', '<leader>t', ':w<cr>:TestFile<cr>', {noremap = true})
-vim.keymap.set('n', '<leader>a', ':w<cr>:TestSuite<cr>', {noremap = true})
-vim.keymap.set('n', '<leader>l', ':w<cr>:TestLast<cr>', {noremap = true})
-vim.keymap.set('n', '<leader>v', ':w<cr>:TestVisit<cr>', {noremap = true})
+vim.keymap.set('n', '<leader>t', ':w<cr>:TestFile<cr>', opts)
+vim.keymap.set('n', '<leader>a', ':w<cr>:TestSuite<cr>', opts)
+vim.keymap.set('n', '<f5>', ':w<cr>:TestSuite --only-failures<cr>', opts)
+vim.keymap.set('i', '<f5>', '<esc>:w<cr>:TestSuite --only-failures<cr>', opts)
+vim.keymap.set('n', '<leader>v', ':w<cr>:TestVisit<cr>', opts)
 
 -- Terminal Mode
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', {noremap = true, silent = true})
@@ -54,9 +56,29 @@ vim.keymap.set('n', '<C-p>', ':GFiles<CR>', opts)
 vim.keymap.set('n', '<C-.>', ':Files<CR>', opts)
 vim.keymap.set('n', '<Leader>b', ':Buffers<CR>', opts)
 vim.keymap.set('n', '<Leader>c', ':Commits<CR>', opts)
+vim.keymap.set('n', '<Leader>C', ':Commits %<CR>', opts)
+vim.keymap.set('n', '<Leader>r', ':GBranches<CR>', opts)
+vim.keymap.set('n', '<Leader>s', ':GStashList<CR>', opts)
 
 -- oil.nvim mimic vim-vinegar navigation to parent
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+
+-- Claudecode.nvim
+vim.keymap.set("n", "<leader>,c", "<cmd>ClaudeCode<cr>", opts)
+vim.keymap.set("n", "<leader>,f", "<cmd>ClaudeCodeFocus<cr>", opts)
+vim.keymap.set("n", "<leader>,r", "<cmd>ClaudeCode --resume<cr>", opts)
+vim.keymap.set("n", "<leader>,C", "<cmd>ClaudeCode --continue<cr>", opts)
+vim.keymap.set("n", "<leader>,m", "<cmd>ClaudeCodeSelectModel<cr>", opts)
+vim.keymap.set("n", "<leader>,b", "<cmd>ClaudeCodeAdd %<cr>", opts)
+vim.keymap.set("v", "<leader>,s", "<cmd>ClaudeCodeSend<cr>", opts)
+vim.keymap.set("n", "<leader>,t", "<cmd>ClaudeCodeTreeAdd<cr>", opts)
+
+-- Diff management
+vim.keymap.set("n", "<leader>,a", "<cmd>ClaudeCodeDiffAccept<cr>", opts)
+vim.keymap.set("n", "<leader>,d", "<cmd>ClaudeCodeDiffDeny<cr>", opts)
+
+-- Utils
+vim.keymap.set("n", "<leader>u", "i<C-r>=system(\"ruby -rsecurerandom -e 'print SecureRandom.uuid'\")<cr><esc>", opts)
 
 
 

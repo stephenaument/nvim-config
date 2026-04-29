@@ -10,7 +10,7 @@ require('mason').setup({
 
 require('mason-lspconfig').setup({
     -- A list of servers to automatically install if they're not already installed
-    ensure_installed = { 'pylsp', 'solargraph', 'lua_ls', 'eslint', 'html', 'cssls', 'tsserver' },
+    ensure_installed = { 'pylsp', 'solargraph', 'lua_ls', 'eslint', 'html', 'cssls', 'ts_ls' },
 })
 
 -- Set different settings for different languages' LSP
@@ -18,7 +18,6 @@ require('mason-lspconfig').setup({
 -- How to use setup({}): https://github.com/neovim/nvim-lspconfig/wiki/Understanding-setup-%7B%7D
 --     - the settings table is sent to the LSP
 --     - on_attach: a lua callback function to run after LSP attaches to a given buffer
-local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 
@@ -54,17 +53,17 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', 'gf', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
-lspconfig.pylsp.setup({
+vim.lsp.config('pylsp', {
   on_attach = on_attach,
   capabilities = capabilities
 })
 
-lspconfig.elixirls.setup {
+vim.lsp.config('elixirls', {
   on_attach = on_attach,
   capabilities = capabilities
-}
+})
 
-lspconfig.solargraph.setup {
+vim.lsp.config('solargraph', {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -73,7 +72,7 @@ lspconfig.solargraph.setup {
       formatting = true
     }
   }
-}
+})
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))

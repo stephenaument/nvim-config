@@ -37,16 +37,16 @@ return require('packer').startup(function(use)
     use 'Shatur/neovim-ayu'
 
     use 'neovim/nvim-lspconfig'
-    use 'hrsh7th/cmp-nvim-lsp' 
+    use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'        -- buffer auto-completion
     use 'hrsh7th/cmp-path'          -- path auto-completion
     use 'hrsh7th/cmp-cmdline'       -- cmdline auto-completion
-    use 'hrsh7th/nvim-cmp'    
+    use 'hrsh7th/nvim-cmp'
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
 
-    use 'williamboman/mason.nvim'
-    use 'williamboman/mason-lspconfig.nvim'
+    use 'mason-org/mason.nvim'
+    use 'mason-org/mason-lspconfig.nvim'
     use { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap' } }
     use 'mhartington/formatter.nvim'
     use 'nvim-treesitter/nvim-treesitter'
@@ -58,17 +58,18 @@ return require('packer').startup(function(use)
     use 'vim-test/vim-test'
 
     use 'tpope/vim-rails'
-    use 'tpope/vim-endwise'
     use 'tpope/vim-fugitive'
     use 'tpope/vim-rhubarb'
     use 'tpope/vim-surround'
+    use 'AndrewRadev/splitjoin.vim'
     use 'vim-scripts/tComment'
-    use 'junegunn/fzf.vim'
+    use 'junegunn/fzf'
     use 'godlygeek/tabular'
     use 'vim-airline/vim-airline'
     use 'pbrisbin/vim-mkdir'
-
     use 'stsewd/fzf-checkout.vim'
+    use 'aacunningham/vim-fuzzy-stash'
+    use 'RRethy/nvim-treesitter-endwise'
 
     use({
       'stevearc/oil.nvim',
@@ -76,6 +77,17 @@ return require('packer').startup(function(use)
         require('oil').setup()
       end,
     })
+
+    use 'folke/snacks.nvim'
+
+    use {
+      'coder/claudecode.nvim',
+      requires = { 'folke/snacks.nvim' },
+      config = function()
+        require('claudecode').setup()
+      end,
+    }
+
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
