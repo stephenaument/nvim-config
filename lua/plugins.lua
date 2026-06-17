@@ -110,8 +110,14 @@ return require('packer').startup(function(use)
           workspaces = {
             {
               name = "notes",
-              path = "~/Sync/documents/notes",
+              path = "~/Documents/My Notes/work",
             },
+          },
+          templates = {
+            folder = "~/Documents/My Notes/work/templates",
+          },
+          daily_notes = {
+            folder = "~/Documents/My Notes/work/journal/daily",
           },
           legacy_commands = false,
         })
