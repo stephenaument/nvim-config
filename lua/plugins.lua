@@ -71,7 +71,7 @@ return require('packer').startup(function(use)
     use 'junegunn/fzf.vim'
     use 'godlygeek/tabular'
     use 'vim-airline/vim-airline'
-    use 'pbrisbin/vim-mkdir'
+    use 'jghauser/mkdir.nvim'
     use 'jbmorgado/vim-pine-script'
     use {
       "zbirenbaum/copilot-cmp",
