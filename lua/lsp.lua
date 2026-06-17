@@ -63,6 +63,7 @@ vim.lsp.config('elixirls', {
   capabilities = capabilities
 })
 
+
 vim.lsp.config('solargraph', {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -72,6 +73,11 @@ vim.lsp.config('solargraph', {
       formatting = true
     }
   }
+})
+
+vim.lsp.config('marksman', {
+  on_attach = on_attach,
+  capabilities = capabilities
 })
 
 local has_words_before = function()

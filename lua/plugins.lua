@@ -53,6 +53,12 @@ return require('packer').startup(function(use)
 
     use 'junegunn/fzf'
     use 'junegunn/fzf.vim'
+    use {
+      'nvim-tree/nvim-web-devicons',
+      config = function()
+        require('nvim-web-devicons').setup()
+      end,
+    }
     use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' } }
     use 'mfussenegger/nvim-lint'
     use 'vim-test/vim-test'
@@ -66,7 +72,7 @@ return require('packer').startup(function(use)
     use 'junegunn/fzf'
     use 'godlygeek/tabular'
     use 'vim-airline/vim-airline'
-    use 'pbrisbin/vim-mkdir'
+    use 'jghauser/mkdir.nvim'
     use 'stsewd/fzf-checkout.vim'
     use 'aacunningham/vim-fuzzy-stash'
     use 'RRethy/nvim-treesitter-endwise'
@@ -88,6 +94,29 @@ return require('packer').startup(function(use)
       end,
     }
 
+    use {
+      "OXY2DEV/markview.nvim",
+      requires = {
+        "nvim-treesitter/nvim-treesitter",
+        "nvim-tree/nvim-web-devicons",
+      },
+    }
+
+    use {
+      "obsidian-nvim/obsidian.nvim",
+      requires = { "nvim-lua/plenary.nvim" },
+      config = function()
+        require("obsidian").setup({
+          workspaces = {
+            {
+              name = "notes",
+              path = "~/Sync/documents/notes",
+            },
+          },
+          legacy_commands = false,
+        })
+      end,
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
