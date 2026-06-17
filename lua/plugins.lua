@@ -66,6 +66,35 @@ return require('packer').startup(function(use)
     use 'godlygeek/tabular'
     use 'vim-airline/vim-airline'
     use 'pbrisbin/vim-mkdir'
+    use 'jbmorgado/vim-pine-script'
+    use {
+      "zbirenbaum/copilot-cmp",
+      requires = { "zbirenbaum/copilot.lua" },
+      after = { "copilot.lua" },
+      config = function ()
+        require("copilot_cmp").setup()
+      end,
+    }
+    use 'tpope/vim-rails'
+    use 'AndrewRadev/splitjoin.vim'
+
+    use "folke/snacks.nvim"
+
+    use {
+      "coder/claudecode.nvim",
+      requires = { "folke/snacks.nvim" },
+      config = function()
+        require('claudecode').setup()
+      end,
+    }
+
+    use {
+      "OXY2DEV/markview.nvim",
+      requires = {
+        "nvim-treesitter/nvim-treesitter",
+        "nvim-tree/nvim-web-devicons",
+      },
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
