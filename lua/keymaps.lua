@@ -82,6 +82,9 @@ vim.keymap.set("n", "<leader>,d", "<cmd>ClaudeCodeDiffDeny<cr>", opts)
 vim.keymap.set("n", "<leader>u", "i<C-r>=system(\"ruby -rsecurerandom -e 'print SecureRandom.uuid'\")<cr><esc>", opts)
 
 
+-- Tables
+vim.keymap.set("n", "<C-i>", ":Tabularize /|/<cr>:'<,'>s/^ //<cr>", opts)
+vim.keymap.set("v", "<C-i>", ":Tabularize /|/<cr>:'<,'>s/^ //<cr>", opts)
 
 -----------------
 -- Visual mode --
