@@ -114,10 +114,10 @@ return require('packer').startup(function(use)
             },
           },
           templates = {
-            folder = "~/Documents/My Notes/work/templates",
+            folder = "templates",
           },
           daily_notes = {
-            folder = "~/Documents/My Notes/work/journal/daily",
+            folder = "journal/daily",
           },
           legacy_commands = false,
         })
