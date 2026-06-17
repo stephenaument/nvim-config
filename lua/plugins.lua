@@ -53,6 +53,12 @@ return require('packer').startup(function(use)
 
     use 'junegunn/fzf'
     use 'junegunn/fzf.vim'
+    use {
+      'nvim-tree/nvim-web-devicons',
+      config = function()
+        require('nvim-web-devicons').setup()
+      end,
+    }
     use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' } }
     use 'mfussenegger/nvim-lint'
     use 'vim-test/vim-test'
@@ -94,6 +100,21 @@ return require('packer').startup(function(use)
         "nvim-treesitter/nvim-treesitter",
         "nvim-tree/nvim-web-devicons",
       },
+    }
+
+    use {
+      "obsidian-nvim/obsidian.nvim",
+      requires = { "nvim-lua/plenary.nvim" },
+      config = function()
+        require("obsidian").setup({
+          workspaces = {
+            {
+              name = "notes",
+              path = "~/Sync/documents/notes",
+            },
+          },
+        })
+      end,
     }
 
     -- Automatically set up your configuration after cloning packer.nvim

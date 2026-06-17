@@ -10,7 +10,7 @@ require('mason').setup({
 
 require('mason-lspconfig').setup({
     -- A list of servers to automatically install if they're not already installed
-    ensure_installed = { 'ruby_ls', 'pylsp', 'solargraph', 'lua_ls', 'eslint', 'html', 'cssls', 'tsserver' },
+    -- ensure_installed = { 'solargraph', 'pylsp', 'lua_ls', 'eslint', 'html', 'cssls', 'ts_ls' },
 })
 
 -- Set different settings for different languages' LSP
@@ -18,17 +18,16 @@ require('mason-lspconfig').setup({
 -- How to use setup({}): https://github.com/neovim/nvim-lspconfig/wiki/Understanding-setup-%7B%7D
 --     - the settings table is sent to the LSP
 --     - on_attach: a lua callback function to run after LSP attaches to a given buffer
-local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 
 -- Customized on_attach function
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -43,29 +42,24 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-    vim.keymap.set('n', '<space>wl', function()
+    vim.keymap.set('n', 'gwa', vim.lsp.buf.add_workspace_folder, bufopts)
+    vim.keymap.set('n', 'gwr', vim.lsp.buf.remove_workspace_folder, bufopts)
+    vim.keymap.set('n', 'gwl', function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, bufopts)
     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+    vim.keymap.set('n', 'grn', vim.lsp.buf.rename, bufopts)
+    vim.keymap.set('n', 'gca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+    vim.keymap.set('n', 'gf', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
-lspconfig.pylsp.setup({
+vim.lsp.config('pylsp', {
   on_attach = on_attach,
   capabilities = capabilities
 })
 
-lspconfig.elixirls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
-}
-
-lspconfig.solargraph.setup {
+vim.lsp.config('solargraph', {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -74,7 +68,12 @@ lspconfig.solargraph.setup {
       formatting = true
     }
   }
-}
+})
+
+vim.lsp.config('marksman', {
+  on_attach = on_attach,
+  capabilities = capabilities
+})
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
