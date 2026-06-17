@@ -113,6 +113,7 @@ return require('packer').startup(function(use)
               path = "~/Sync/documents/notes",
             },
           },
+          legacy_commands = false,
         })
       end,
     }
