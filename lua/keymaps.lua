@@ -31,6 +31,25 @@ vim.keymap.set('n', '<f6>', '10<c-w>-', opts)
 vim.keymap.set('n', '<f7>', '40<c-w>-', opts)
 
 -- Tests - vim-test/vim-test
+vim.cmd([[
+  function! SkipWorkflowSeedTransform(cmd) abort
+    if get(g:, 'skip_workflow_seed', 0)
+      return 'SKIP_WORKFLOW_SEED=1 ' . a:cmd
+    endif
+    return a:cmd
+  endfunction
+  let g:test#custom_transformations = {'skip_seed': function('SkipWorkflowSeedTransform')}
+  let g:test#transformation = 'skip_seed'
+]])
+vim.keymap.set('n', '<f2>', function()
+  if vim.g.skip_workflow_seed then
+    vim.g.skip_workflow_seed = false
+    vim.notify("SKIP_WORKFLOW_SEED off")
+  else
+    vim.g.skip_workflow_seed = true
+    vim.notify("SKIP_WORKFLOW_SEED=1")
+  end
+end, opts)
 vim.keymap.set('n', '<f8>', ':w<cr>:TestLast<cr>', opts)
 vim.keymap.set('i', '<f8>', '<esc>:w<cr>:TestLast<cr>', opts)
 vim.keymap.set('n', '<f9>', ':w<cr>:TestNearest<cr>', opts)
