@@ -54,7 +54,28 @@ vim.keymap.set('n', '<C-p>', ':GFiles<CR>', opts)
 vim.keymap.set('n', '<C-.>', ':Files<CR>', opts)
 vim.keymap.set('n', '<Leader>b', ':Buffers<CR>', opts)
 vim.keymap.set('n', '<Leader>c', ':Commits<CR>', opts)
+vim.keymap.set('n', '<Leader>C', ':Commits %<CR>', opts)
+vim.keymap.set('n', '<Leader>r', ':GBranches<CR>', opts)
+vim.keymap.set('n', '<Leader>s', ':GStashList<CR>', opts)
 
+
+vim.keymap.set('n', '-', '<CMD>Oil<CR>', opts)
+
+--Claudecode.nvim
+vim.keymap.set("n", "<leader>,c", "<cmd>ClaudeCode<cr>", opts)
+vim.keymap.set("n", "<leader>,f", "<cmd>ClaudeCodeFocus<cr>", opts)
+vim.keymap.set("n", "<leader>,r", "<cmd>ClaudeCode --resume<cr>", opts)
+vim.keymap.set("n", "<leader>,C", "<cmd>ClaudeCode --continue<cr>", opts)
+vim.keymap.set("n", "<leader>,m", "<cmd>ClaudeCodeSelectModel<cr>", opts)
+vim.keymap.set("n", "<leader>,b", "<cmd>ClaudeCodeAdd %<cr>", opts)
+vim.keymap.set("n", "<leader>,s", "<cmd>ClaudeCodeSend<cr>", opts)
+vim.keymap.set("n", "<leader>,t", "<cmd>ClaudeCodeTreeAdd<cr>", opts)
+vim.keymap.set("n", "<leader>,a", "<cmd>ClaudeCodeDiffAccept<cr>", opts)
+vim.keymap.set("n", "<leader>,d", "<cmd>ClaudeCodeDiffDeny<cr>", opts)
+
+--Tables
+vim.keymap.set("v", "<C-i>", ":Tabularize /|/<cr>:'<,'>s/^ //<cr>", opts)
+vim.keymap.set("n", "<C-i>", ":Tabularize /|/<cr>:'<,'>s/^ //<cr>", opts)
 
 
 
