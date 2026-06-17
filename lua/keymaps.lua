@@ -109,6 +109,9 @@ vim.keymap.set("n", "<leader>u", "i<C-r>=system(\"ruby -rsecurerandom -e 'print 
 vim.keymap.set("n", "<C-i>", ":Tabularize /|/<cr>:'<,'>s/^ //<cr>", opts)
 vim.keymap.set("v", "<C-i>", ":Tabularize /|/<cr>:'<,'>s/^ //<cr>", opts)
 
+-- Obsidian
+vim.keymap.set("n", "<D-t>", ":Obsidian today<cr>", opts)
+
 -----------------
 -- Visual mode --
 ----------------- 
