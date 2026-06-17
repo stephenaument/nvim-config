@@ -50,7 +50,10 @@ vim.keymap.set('n', '<Leader>*', ':Ag <C-R><C-W><CR>', opts)
 
 vim.keymap.set('n', ',,', ':cclose<CR>', opts)
 
-vim.keymap.set('n', '<Leader>g', ':Ge:<CR>', opts) -- Git
+-- Git
+vim.keymap.set('n', '<Leader>g', ':Ge:<CR>', opts) -- Launch Fugitive status screen
+vim.keymap.set('n', 'gl', ':G pull<CR>', opts)
+
 
 -- fzf shortcuts
 vim.keymap.set('n', '<C-p>', ':GFiles<CR>', opts)
