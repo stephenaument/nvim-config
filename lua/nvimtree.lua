@@ -1,3 +1,5 @@
+---@diagnostic disable: undefined-global
+
 local setup, nvimtree = pcall(require, "nvim-tree")
 if not setup then
   return

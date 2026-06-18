@@ -1,3 +1,5 @@
+---@diagnostic disable: undefined-global
+
 -- define common options
 local opts = {
     noremap = true,      -- non-recursive
@@ -83,6 +85,12 @@ vim.keymap.set('n', '<Leader>C', ':BCommits<CR>', opts)
 vim.keymap.set('n', '<Leader>r', ':GBranches<CR>', opts)
 vim.keymap.set('n', '<Leader>s', ':GStashList<CR>', opts)
 vim.keymap.set('n', '<Leader>T', ':GTags<CR>', opts)
+
+-- fzf-lua shortcuts
+vim.keymap.set('n', '<Leader>d', ':FzfLua diagnostics_document<CR>', opts)
+vim.keymap.set('n', '<Leader>D', ':FzfLua diagnostics_workspace<CR>', opts)
+vim.keymap.set('n', '<Leader>lr', ':FzfLua lsp_references<CR>', opts)
+vim.keymap.set('n', '<Leader>ld', ':FzfLua lsp_definitions<CR>', opts)
 
 -- oil.nvim mimic vim-vinegar navigation to parent
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })

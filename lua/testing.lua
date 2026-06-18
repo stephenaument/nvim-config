@@ -1,3 +1,5 @@
+---@diagnostic disable: undefined-global
+
 local M = {}
 
 vim.g['test#strategy'] = 'neovim_sticky'

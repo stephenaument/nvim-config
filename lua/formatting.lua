@@ -1,3 +1,5 @@
+---@diagnostic disable: undefined-global
+
 -- Utilities for creating configurations
 local util = require "formatter.util"
 

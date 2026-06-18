@@ -1,3 +1,5 @@
+---@diagnostic disable: undefined-global
+
 require('nvim-lint').linters_by_ft = {
   markdown = {'ruby', 'luacheck', 'jsonlint', 'tidy', 'eslint', 'erb_lint', 'credo'}
 }

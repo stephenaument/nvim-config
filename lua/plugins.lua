@@ -1,3 +1,5 @@
+---@diagnostic disable: undefined-global
+
 -- Install Packer automatically if it's not installed(Bootstraping)
 -- Hint: string concatenation is done by `..`
 local ensure_packer = function()
@@ -74,6 +76,7 @@ return require('packer').startup(function(use)
     use 'vim-airline/vim-airline'
     use 'jghauser/mkdir.nvim'
     use 'stsewd/fzf-checkout.vim'
+    use { 'ibhagwan/fzf-lua', requires = { 'nvim-tree/nvim-web-devicons' } }
     use 'aacunningham/vim-fuzzy-stash'
     use 'RRethy/nvim-treesitter-endwise'
 
